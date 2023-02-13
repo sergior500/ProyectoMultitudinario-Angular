@@ -22,6 +22,10 @@ const routes: Routes = [
         component: CategoryListComponent
     },
     {
+        path:'',
+        component: CategoryListComponent
+    },
+    {
         path:'delete/:id',
         component: DeleteCategoryComponent
     },

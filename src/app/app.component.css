@@ -1,0 +1,21 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.15fr 1fr; 
+    grid-template-areas:"header"
+                        "container";
+
+    height: 100vh;
+    margin: 0em;
+
+    background-color: #111010;
+}
+
+.header{
+    grid-area: header;
+    
+}
+.container{
+    grid-area: container;
+}
+

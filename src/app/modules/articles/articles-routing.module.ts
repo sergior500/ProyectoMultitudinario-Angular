@@ -18,6 +18,10 @@ const routes: Routes = [
         component: ArticleComponent
     },
     {
+        path:'',
+        component: ArticlesListComponent
+    },
+    {
         path:'list',
         component: ArticlesListComponent
     },
