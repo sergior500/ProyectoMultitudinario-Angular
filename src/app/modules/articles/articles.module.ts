@@ -20,6 +20,7 @@ import { ArticlesRoutingModule } from './articles-routing.module';
   imports: [
     CommonModule,
     ArticlesRoutingModule
+    
   ]
 })
 export class ArticlesModule { }

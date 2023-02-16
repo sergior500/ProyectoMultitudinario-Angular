@@ -5,7 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
 import { UsersAddComponent } from './users-add/users-add.component';
 import { UsersRoutingModule } from './users-routing.module';
-import { ComponentsModule } from '../../components/components.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +18,9 @@ import { ComponentsModule } from '../../components/components.module';
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UsersModule { }

@@ -14,16 +14,16 @@ const routes: Routes = [
         component: AddArticleComponent
     },
     {
-        path:':id',
-        component: ArticleComponent
+        path:'list',
+        component: ArticlesListComponent
     },
     {
         path:'',
         component: ArticlesListComponent
     },
     {
-        path:'list',
-        component: ArticlesListComponent
+        path:':id',
+        component: ArticleComponent
     },
     {
         path:'delete/:id',

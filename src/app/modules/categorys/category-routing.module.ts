@@ -14,16 +14,16 @@ const routes: Routes = [
         component: AddCategoryComponent
     },
     {
-        path:':id',
-        component: CategoryComponent
-    },
-    {
         path:'list',
         component: CategoryListComponent
     },
     {
         path:'',
         component: CategoryListComponent
+    },    
+    {
+        path:':id',
+        component: CategoryComponent
     },
     {
         path:'delete/:id',

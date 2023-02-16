@@ -1,0 +1,16 @@
+section{
+    padding: 10%;
+}
+
+.fontawesomeicon::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+ }
+
+.Dumbbell::before {
+   font: var(--fa-font-solid);
+    content: ' \f44b';
+ }
+
+

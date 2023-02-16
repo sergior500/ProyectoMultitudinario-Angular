@@ -1,1 +1,26 @@
-<p>articles-list works!</p>
+<table class="table table-hover" *ngIf="!error">
+    <thead>
+        <tr>
+            <th> # </th>
+            <th> Nombre </th>
+            <th> price </th>
+            <th> stock </th>
+            <th> description </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let article of articles let i = index"> <!-- Esto es lo que tenemos que repetir por cada país que encuentre -->
+            <td> {{i+1}} </td> <!-- Aquí obtendremos el número de resultado -->
+            <!-- <td>
+                <img class="small-flag" [src]="article.images">  Aquí obtendremos la url de la bandera 
+            </td> -->
+            <td>{{article.name}}</td>
+            <td>{{article.price}}</td>
+            <td>{{article.stock}}</td>
+            <td>{{article.description}}</td>
+            
+        </tr>
+    </tbody>
+</table>
