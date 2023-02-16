@@ -6,6 +6,8 @@ import { AddArticleComponent } from './add-article/add-article.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
 import { DeleteArticleComponent } from './delete-article/delete-article.component';
 import { ArticlesRoutingModule } from './articles-routing.module';
+import {MatCardModule} from '@angular/material/card'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -19,7 +21,9 @@ import { ArticlesRoutingModule } from './articles-routing.module';
   ],
   imports: [
     CommonModule,
-    ArticlesRoutingModule
+    ArticlesRoutingModule,
+    MatCardModule,
+    MatPaginatorModule
     
   ]
 })

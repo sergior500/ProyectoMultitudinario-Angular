@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { ArticleService } from '../article-Services/article.service';
 import { Article } from '../../../interfaces/article.interface';
-
+import { Observable } from 'rxjs';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table'
 
 @Component({
   selector: 'app-articles-list',
@@ -10,24 +12,43 @@ import { Article } from '../../../interfaces/article.interface';
 })
 export class ArticlesListComponent implements OnInit {
 
-
-  constructor(private articleService: ArticleService) { }
-
   articles:Article[] = [];
   error:boolean = true;
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  obs!: Observable<any>;
+  dataSource!: MatTableDataSource<Article>;
+
+  constructor(private articleService: ArticleService, private changeDetectorRef: ChangeDetectorRef) { }
+
+
+
   ngOnInit(): void {
     this.articleList();
+    
+    this.changeDetectorRef.detectChanges();
+
+    this.dataSource.paginator = this.paginator;
+    this.obs = this.dataSource.connect();
+    console.log(this.obs)
+    
   }
 
+  ngOnDestroy() {
+    if (this.dataSource) { 
+      this.dataSource.disconnect(); 
+    }
+  }
+  
   articleList(){
     this.articleService.articleList()
       .subscribe({
         next: (resp) => {
-          this.articles = resp
+          this.dataSource = new MatTableDataSource<Article>(resp);
           this.error = false;
         }
       })
+      
   }
 
 }
