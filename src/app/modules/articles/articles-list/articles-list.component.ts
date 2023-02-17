@@ -26,11 +26,9 @@ export class ArticlesListComponent implements OnInit {
   ngOnInit(): void {
     this.articleList();
     
-    this.changeDetectorRef.detectChanges();
 
-    this.dataSource.paginator = this.paginator;
-    this.obs = this.dataSource.connect();
     console.log(this.obs)
+    console.log(this.articles)
     
   }
 
@@ -44,11 +42,17 @@ export class ArticlesListComponent implements OnInit {
     this.articleService.articleList()
       .subscribe({
         next: (resp) => {
-          this.dataSource = new MatTableDataSource<Article>(resp);
+          this.dataSource = new MatTableDataSource<Article>(resp)
+          this.changeDetectorRef.detectChanges();
+
+          this.dataSource.paginator = this.paginator;
+          this.obs = this.dataSource.connect();
           this.error = false;
+          console.log(resp)
+          
         }
       })
-      
+      console.log(this.articles)
   }
 
 }
