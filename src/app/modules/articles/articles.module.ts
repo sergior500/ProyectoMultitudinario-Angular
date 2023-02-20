@@ -8,6 +8,7 @@ import { DeleteArticleComponent } from './delete-article/delete-article.componen
 import { ArticlesRoutingModule } from './articles-routing.module';
 import {MatCardModule} from '@angular/material/card'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -23,7 +24,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CommonModule,
     ArticlesRoutingModule,
     MatCardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxPaginationModule
     
   ]
 })
