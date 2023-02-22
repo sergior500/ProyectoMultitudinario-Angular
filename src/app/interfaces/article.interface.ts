@@ -1,6 +1,7 @@
 // To parse this data:
 //
 //   import { Convert, Article } from "./file";
+import { Category } from './category.interface';
 //
 //   const article = Convert.toArticle(json);
 //
@@ -27,7 +28,7 @@ export interface Content {
     price:       number;
     stock:       number;
     description: string;
-    category:    null;
+    category:    Category;
     listImage:   any[];
 }
 

@@ -22,4 +22,8 @@ export class ArticleService {
     return this.http.get<Article>(`${this.url}?pageNumber=${page}&pageSize=${size}`)
   }
 
+  saveArticle(){
+    
+  }
+
 }
