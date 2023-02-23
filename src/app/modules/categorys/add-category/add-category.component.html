@@ -1,1 +1,36 @@
-<p>add-category works!</p>
+<section class=" bg-image" style="background-color: #111010;"
+		>
+		<div class="mask d-flex align-items-center  gradient-custom-3">
+			<div class="container">
+				<div
+					class="row d-flex justify-content-center align-items-center ">
+					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+						<div class="card" style="border-radius: 15px;">
+							<div class="card-body p-5">
+								<h2 class="text-uppercase text-center mb-5">Create an
+									account</h2>
+                                
+								<form class="form-horizontal" [formGroup]="myForm" autocomplete="off" (ngSubmit)="save()">
+
+									<div class="form-outline mb-4">
+									<label class="form-label" for="form3Example1cg">Name</label>
+										<input type="text" id="form3Example1cg"
+											class="form-control form-control-lg" formControlName="name"/>
+                                            <span class="form-text text-danger" *ngIf="notValidField('name')">
+                                                Invalid Name
+                                            </span>
+									</div>
+									
+									<div class="d-flex justify-content-center">
+										<button type="submit"
+											class="btn btn-dark btn-block btn-lg gradient-custom-4">Add</button>
+									</div>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>

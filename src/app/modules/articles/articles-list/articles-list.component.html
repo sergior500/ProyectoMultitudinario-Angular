@@ -85,8 +85,8 @@
       </ng-container>
 
       <ng-container  matColumnDef="button">
-        <mat-header-cell *matHeaderCellDef> boton </mat-header-cell>
-        <mat-cell *matCellDef="let row"> <button></button> </mat-cell>
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row"> <button (click)="delete(row.id)"></button> </mat-cell>
       </ng-container>
       
       

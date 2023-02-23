@@ -4,7 +4,6 @@ import { ArticlesListComponent } from './articles-list/articles-list.component';
 import { ArticleComponent } from './article/article.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
-import { DeleteArticleComponent } from './delete-article/delete-article.component';
 import { ArticlesRoutingModule } from './articles-routing.module';
 import {MatCardModule} from '@angular/material/card'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -12,7 +11,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {MatTableModule} from '@angular/material/table'; 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSortModule} from '@angular/material/sort'; 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,8 +19,7 @@ import { FormsModule } from '@angular/forms';
     ArticlesListComponent,
     ArticleComponent,
     AddArticleComponent,
-    UpdateArticleComponent,
-    DeleteArticleComponent
+    UpdateArticleComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatSortModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ArticlesModule { }

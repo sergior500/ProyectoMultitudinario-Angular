@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { CategoryComponent } from './category/category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
-import { DeleteCategoryComponent } from './delete-category/delete-category.component';
 import { UpdateArticleComponent } from '../articles/update-article/update-article.component';
+import { UpdateCategoryComponent } from './update-category/update-category.component';
 
 
 const routes: Routes = [
@@ -26,12 +26,8 @@ const routes: Routes = [
         component: CategoryComponent
     },
     {
-        path:'delete/:id',
-        component: DeleteCategoryComponent
-    },
-    {
         path:'update/:id',
-        component: UpdateArticleComponent
+        component: UpdateCategoryComponent
     }
 ];
 

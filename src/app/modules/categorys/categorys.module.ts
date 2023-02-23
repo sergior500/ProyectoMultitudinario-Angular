@@ -4,8 +4,14 @@ import { CategoryComponent } from './category/category.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { UpdateCategoryComponent } from './update-category/update-category.component';
-import { DeleteCategoryComponent } from './delete-category/delete-category.component';
 import { CategoryRoutingModule } from './category-routing.module';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,12 +20,19 @@ import { CategoryRoutingModule } from './category-routing.module';
     CategoryComponent,
     CategoryListComponent,
     AddCategoryComponent,
-    UpdateCategoryComponent,
-    DeleteCategoryComponent
+    UpdateCategoryComponent
   ],
   imports: [
     CommonModule,
-    CategoryRoutingModule
+    CategoryRoutingModule,
+    MatCardModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatSortModule,
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CategorysModule { }
