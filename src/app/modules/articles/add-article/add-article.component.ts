@@ -16,8 +16,8 @@ export class AddArticleComponent implements OnInit {
     name:['',[Validators.required,Validators.minLength(3),Validators.maxLength(12)]],
     price:['',[Validators.required,Validators.min(0.1)]],
     stock:['',[Validators.required,Validators.min(1)]],
-    description:['',Validators.required,Validators.minLength(4)],
-    categoryName:['',Validators.required,Validators.minLength(2)]
+    description:['',[Validators.required,Validators.minLength(4)]],
+    categoryName:['',[Validators.required,Validators.minLength(2)]]
   },)
 
   ngOnInit(): void {

@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 import Swal from 'sweetalert2';
+import { UsersService } from '../../../services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   password:string ="";
   
-  constructor() { }
+  constructor(private service: UsersService, private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,11 +41,27 @@ export class LoginComponent implements OnInit {
 
   save() {
     console.log(this.myForm);
-    this.myForm.resetForm();
-    Swal.fire(
-      'Good job!',
-      'You logged correctly!',
-      'success'
-    )
+    console.log(this.myForm?.controls['username'].value,this.myForm?.controls['password'].value)
+    this.service.login(this.myForm?.controls['username'].value,this.myForm?.controls['password'].value)
+                        .subscribe((resp)=>{
+                          if(resp){
+                            Swal.fire(
+                              'Good job!',
+                              'You logged correctly!',
+                              'success'
+                            )
+                              this.route.navigate(["/"]);
+                          }else{
+                            Swal.fire({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: 'Something went wrong!',
+                            })
+                          }
+                            this.myForm.resetForm();
+    
+                        })
+   
+    
   }
 }
