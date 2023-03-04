@@ -51,6 +51,10 @@ import { catchError, Observable, of, switchMap } from 'rxjs';
        
         
       }
+
+      register(user:string, password:string, email:string, firstName:string){
+        return this.http.post<any>(`${this.url}/signup`,{'username':user, 'password':password,'first_name':firstName, 'email':email, },this.httpOptions)
+      }
       onlogout(){
         localStorage.setItem('loggin','false');
         localStorage.removeItem("token");
