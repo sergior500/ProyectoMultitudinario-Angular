@@ -1,3 +1,52 @@
+.container-fluid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3fr 0.15fr; 
+    grid-template-areas:"video video video video video"
+                        "products products products products products";
+
+
+    height: 100vh;
+
+    padding: 0 !important;
+
+}
+
+.video{
+    grid-area: video;
+}
+
+.products{
+    grid-area: products;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr; 
+    grid-template-areas:"item1 item2 item3 item4 item5";
+
+}
+
+.item1{
+    grid-area: "item1";
+    padding: 10%;
+}
+.item2{
+    grid-area: "item2";
+    padding: 10%;
+}
+.item3{
+    grid-area: "item3";
+    padding: 10%;
+}
+.item4{
+    grid-area: "item4";
+    padding: 10%;
+}
+.item5{
+    grid-area: "item5";
+    padding: 10%;
+}
+
+
 .sect {
     width: 100%;
     min-height: 600px;
@@ -10,7 +59,7 @@ overflow: hidden;
 }
 
 video {
-position: fixed;
+position: absolute;
 left: 0;
 top: 0;
 width: 100%;
