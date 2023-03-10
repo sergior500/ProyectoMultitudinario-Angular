@@ -18,7 +18,10 @@ export class HeaderComponent implements OnInit {
   user : string = "";
   admin : string = "";
   ngOnInit(): void {
-    this.token = jwtDecode(localStorage.getItem('token')!)
+    const aux = localStorage.getItem('token');
+    if(aux){
+      this.token = jwtDecode(aux!)
+    }
     if(this.token){
       this.user = this.token.sub;
       this.admin = this.token.role;
