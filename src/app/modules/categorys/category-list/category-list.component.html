@@ -1,8 +1,10 @@
 <div class="container">
+  <div class="arriba">
+    <div class="boton"><a [routerLink]="['/categorys/add']"><button type="button" class="btn btn-success">Add User</button></a></div>
     <div class="example-header">
         <input (keyup)="applyFilter()" placeholder="Filter" [(ngModel)]="filterValue">
     </div>
-  
+  </div>
     <div class="example-container mat-elevation-z8">
   
       <mat-table [dataSource]="dataSource" matSort>
@@ -18,11 +20,16 @@
           <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
           <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
         </ng-container>
-  
-  
+
+        
         <ng-container  matColumnDef="button">
           <mat-header-cell *matHeaderCellDef></mat-header-cell>
-          <mat-cell *matCellDef="let row"> <button (click)="delete(row.id)"></button> </mat-cell>
+          <mat-cell *matCellDef="let row"> <button  class="btn btn-danger" (click)="delete(row.id)"> Delete </button> </mat-cell>
+        </ng-container>
+
+        <ng-container  matColumnDef="button2">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row"> <a  [routerLink]="['/categorys/update',row.id]"><button  class="btn btn-warning"> Update </button></a> </mat-cell>
         </ng-container>
         
         

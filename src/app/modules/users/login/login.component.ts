@@ -49,8 +49,13 @@ export class LoginComponent implements OnInit {
                               'Good job!',
                               'You logged correctly!',
                               'success'
-                            )
-                              this.route.navigate(["/"]);
+                            ).then(() => {
+                              window.location.reload()
+                             })
+
+                            this.route.navigate(["/"]);
+                              
+                              
                           }else{
                             Swal.fire({
                               icon: 'error',

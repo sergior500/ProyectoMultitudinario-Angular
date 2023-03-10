@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Content } from '../../../interfaces/article.interface';
 import { Category } from '../../../interfaces/category.interface';
+import { CategoryComponent } from '../../categorys/category/category.component';
+import { CategoryService } from '../../categorys/category-Services/category.service';
 
 @Component({
   selector: 'app-update-article',
@@ -13,14 +15,16 @@ import { Category } from '../../../interfaces/category.interface';
 })
 export class UpdateArticleComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private service: ArticleService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private fb: FormBuilder,private service: ArticleService, private route: ActivatedRoute, private catService : CategoryService, private router: Router) { }
+
+  categorias : Category[] = [];
 
   myForm: FormGroup = this.fb.group({
     name:["",[Validators.required,Validators.minLength(3)]],
     price:["",[Validators.required,Validators.min(0.1)]],
     stock:["",[Validators.required,Validators.min(1)]],
     description:["",[Validators.required,Validators.minLength(4)]],
-    categoryName:["",[Validators.required,Validators.minLength(2)]]
+    categoryName:["",[Validators.required]]
   },)
 
   id!:number;
@@ -42,6 +46,12 @@ export class UpdateArticleComponent implements OnInit {
         }
       })
 
+      this.catService.categoryList()
+      .subscribe({
+        next: (resp) => {
+          this.categorias = resp.content;
+        }
+      })
   }
 
   notValidField(field:string){

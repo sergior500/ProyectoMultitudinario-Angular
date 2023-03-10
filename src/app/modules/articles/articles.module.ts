@@ -12,6 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSortModule} from '@angular/material/sort'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ArticlesListComponent,
     ArticleComponent,
     AddArticleComponent,
-    UpdateArticleComponent
+    UpdateArticleComponent,
+    ShoppingCartComponent
   ],
   imports: [
     CommonModule,

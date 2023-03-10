@@ -1,7 +1,7 @@
 .container-fluid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 3fr 0.15fr; 
+    grid-template-rows: 1fr 1fr 0.15fr; 
     grid-template-areas:"video video video video video"
                         "products products products products products";
 
@@ -49,7 +49,7 @@
 
 .sect {
     width: 100%;
-    min-height: 600px;
+    min-height: 680px;
     margin: 0;
 }
 

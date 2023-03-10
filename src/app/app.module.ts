@@ -11,6 +11,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './auth-guard.guard';
 
 
 
@@ -33,7 +34,7 @@ import { FormsModule } from '@angular/forms';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true
-  }],
+  },AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

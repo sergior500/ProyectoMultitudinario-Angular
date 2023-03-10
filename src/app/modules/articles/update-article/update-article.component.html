@@ -52,11 +52,11 @@
                                     
                                     <label class="form-label" for="form3Example5cg">Category</label>
 									<div class="form-outline mb-4">
-										<input type="text" id="form3Example5cg"
-											class="form-control form-control-lg"  formControlName="categoryName"/> 
-                                            <span class="form-text text-danger" *ngIf="notValidField('categoryName')">
-                                                Invalid Category
-                                            </span>
+                                        <select formControlName="categoryName" id="categoryName" class="form-control form-control-lg">
+											
+											<option [value]="cat.name" *ngFor="let cat of categorias">{{cat.name}}</option>
+
+										</select>
                                     </div>
 									
 

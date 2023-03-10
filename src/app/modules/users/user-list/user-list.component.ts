@@ -5,25 +5,25 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { Category } from '../../../interfaces/category.interface';
-import { CategoryService } from '../category-Services/category.service';
-import { token } from '../../../interfaces/token.inteface';
-import jwtDecode from 'jwt-decode';
+import { UsersService } from 'src/app/services/users.service';
+import { User } from 'src/app/interfaces/user.interface';
+import { Content } from 'src/app/interfaces/users.inteface';
+
 
 @Component({
-  selector: 'app-category-list',
-  templateUrl: './category-list.component.html',
-  styleUrls: ['./category-list.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class CategoryListComponent implements OnInit {
+export class UserListComponent implements OnInit {
 
-
-  articles: Category[] = [];
+  articles: Content[] = [];
   error:boolean = true;
 
 
 
-  displayedColumns = ['id', 'name','button','button2'];
-  dataSource!: MatTableDataSource<Category>;
+  displayedColumns = ['username', 'name','email','role','button','button2'];
+  dataSource!: MatTableDataSource<Content>;
 
   @Input()
   filterValue : string = "";
@@ -32,10 +32,7 @@ export class CategoryListComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  token !:token;
-  admin : string = "";
-
-  constructor(private CategoryService: CategoryService) {
+  constructor(private userService: UsersService) {
 
    }
 
@@ -43,13 +40,6 @@ export class CategoryListComponent implements OnInit {
 
   ngOnInit(): void {
     this.articleList();
-    this.token = jwtDecode(localStorage.getItem('token')!)
-    if(this.token){
-        this.admin = this.token.role;
-    }
-    if(this.admin != 'ADMIN'){
-      this.displayedColumns = ['id', 'name']
-    }
 
     
   }
@@ -64,7 +54,7 @@ export class CategoryListComponent implements OnInit {
   
   articleList(){
 
-    this.CategoryService.categoryList()
+    this.userService.userList()
       .subscribe({
         next:(resp)=>{
           this.dataSource = new MatTableDataSource(resp.content);
@@ -75,7 +65,7 @@ export class CategoryListComponent implements OnInit {
     })
   }
 
-    delete(id:number){
+    delete(id:string){
       const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
           confirmButton: 'btn btn-success',
@@ -94,7 +84,7 @@ export class CategoryListComponent implements OnInit {
         reverseButtons: true
       }).then((result) => {
         if (result.isConfirmed) {
-          this.CategoryService.deleteCategory(id)
+          this.userService.deleteUser(id)
             .subscribe({
               next:(res) => {
               }
@@ -118,5 +108,4 @@ export class CategoryListComponent implements OnInit {
         }
       })
     }
-
 }

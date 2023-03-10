@@ -2,6 +2,27 @@ table{
     background-color: #fff;
 }
 
-.container{
-    padding-top: 7%;
+.container-fluid{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+
+}
+.example-card{
+    margin: 25px;
+    width: 300px;
+}
+.sticky{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boton{
+    margin-left: 20px;
+
+    height: 10%;
 }

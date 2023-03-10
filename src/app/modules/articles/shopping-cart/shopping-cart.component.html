@@ -1,0 +1,56 @@
+<section class="h-100" style="background-color: #eee;">
+    <div class="container h-100 py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-10">
+  
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+          </div>
+
+          <div class="card rounded-3 mb-4" *ngFor="let product of productos">
+            <div class="card-body p-4">
+              <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-2 col-lg-2 col-xl-2">
+                  <img
+                    src="https://res.cloudinary.com/df7eewfeo/image/upload/v1678443061/no-image-icon-15_osj7ye.png"
+                    class="img-fluid rounded-3" alt="Article"
+                    *ngIf="product.product.listImage.length == 0">
+
+                    <img
+                    src="{{product.product.listImage['0'].url}}"
+                    class="img-fluid rounded-3" alt="Cotton T-shirt"
+                    *ngIf="product.product.listImage.length != 0">
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                  <p class="lead fw-normal mb-2">{{product.product.name}}</p>
+                  <p> <span class="text-muted">Category: </span>{{product.product.category.name}}</p>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+
+  
+                  <input id="form1" min="0" name="quantity" value="{{product.quantity}}" type="number"
+                    class="form-control form-control-sm" readonly/>
+  
+
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                  <h5 class="mb-0">${{product.product.price * product.quantity}}</h5>
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                  <a class="text-danger" (click)="deleteFromCart(product.product.id)"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+  
+          <div class="card">
+            <div class="card-body">
+              <button type="button" class="btn btn-warning btn-block btn-lg" (click)="buy()">Proceed to Pay</button>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>

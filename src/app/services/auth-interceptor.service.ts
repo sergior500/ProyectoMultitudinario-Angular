@@ -17,7 +17,7 @@ export class AuthInterceptorService implements HttpInterceptor {
   constructor(private router: Router) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const jwt: string | null = localStorage.getItem('jwt');
+    const jwt: string | null = localStorage.getItem('token');
 
     let request = req;
 

@@ -5,6 +5,7 @@ import { ArticleComponent } from './article/article.component';
 import { UpdateCategoryComponent } from '../categorys/update-category/update-category.component';
 import { ArticlesListComponent } from './articles-list/articles-list.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,11 @@ const routes: Routes = [
         path:'list',
         component: ArticlesListComponent
     },
+    {
+        path:'cart',
+        component: ShoppingCartComponent
+    }
+    ,
     {
         path:'',
         component: ArticlesListComponent

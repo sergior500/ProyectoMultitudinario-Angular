@@ -1,15 +1,28 @@
+
+<div class="container-fluid">
 <mat-card class="example-card" *ngFor="let card of obs | async">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{ card.name }}</mat-card-title>
+
+      
       <mat-card-subtitle>{{ card.description }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <p>{{ card.stock }}</p>
+      <img src="{{card.listImage['0'].url}}" width="70px"*ngIf="card.listImage.length != 0">
+      <img src="https://res.cloudinary.com/df7eewfeo/image/upload/v1678443061/no-image-icon-15_osj7ye.png" width="70px" *ngIf="card.listImage.length == 0">
+      <p><b>Stock: </b>{{ card.stock }}
+      </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <p *ngIf="admin == 'ADMIN'"><button  class="btn btn-danger" (click)="delete(card.id)"> Delete </button> <br><br><a  [routerLink]="['/articles/update',card.id]"><button  class="btn btn-warning"> Update </button></a></p>
+      <button  class="btn btn-success" (click)="addToCart(card.id)" *ngIf="admin == 'ADMIN'"> AddToCart </button> <br><br>
+      <!-- <input id="form1" min="0" name="quantity" value="2" type="number"
+        class="form-control form-control-sm" /> -->
     </mat-card-actions>
   </mat-card>
-  <mat-paginator [pageSizeOptions]="[1, 2, 3, 100]"></mat-paginator>
+</div>
+<div class="sticky">
+  <a [routerLink]="['/articles/add']" *ngIf="admin == 'ADMIN'"><button type="button" class="btn btn-success boton">Add Article</button></a>
+  <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator>
+</div>

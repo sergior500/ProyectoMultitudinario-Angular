@@ -4,6 +4,11 @@ import { Article, Content } from '../../../interfaces/article.interface';
 import { Observable } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table'
+import { token } from '../../../interfaces/token.inteface';
+import jwtDecode from 'jwt-decode';
+import Swal from 'sweetalert2';
+import { productos } from '../../../interfaces/product.interface';
+import { CartService } from '../../../services/carrito.service';
 
 @Component({
   selector: 'app-articles-list',
@@ -19,16 +24,24 @@ export class ArticlesListComponent implements OnInit {
   obs!: Observable<any>;
   dataSource!: MatTableDataSource<Content>;
 
-  constructor(private articleService: ArticleService, private changeDetectorRef: ChangeDetectorRef) { }
+  constructor(private articleService: ArticleService, private changeDetectorRef: ChangeDetectorRef, private cartservice: CartService) { }
 
-
+  token !:token;
+  user : string = "";
+  admin : string = "";
+  product : productos = {
+    id: 0,
+    quantity : 0
+  };
 
   ngOnInit(): void {
     this.articleList();
-    
 
-    console.log(this.obs)
-    console.log(this.articles)
+    this.token = jwtDecode(localStorage.getItem('token')!)
+    if(this.token){
+      this.user = this.token.sub;
+      this.admin = this.token.role;
+    }
     
   }
 
@@ -38,6 +51,21 @@ export class ArticlesListComponent implements OnInit {
     }
   }
   
+
+  addToCart(id:number ){
+    this.product.id = id;
+    console.log(this.product)
+
+    this.cartservice.addToCart(this.product);
+
+    Swal.fire(
+      'Good job!',
+      'Your item has been added!',
+      'success'
+    )
+
+  }
+
   articleList(){
     this.articleService.articleList()
       .subscribe({
@@ -53,6 +81,49 @@ export class ArticlesListComponent implements OnInit {
         }
       })
       console.log(this.articles)
+  }
+  delete(id:number){
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.articleService.deleteArticle(id)
+          .subscribe({
+            next:(res) => {
+            }
+          })
+          swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          ).then(() => {
+            window.location.reload()
+          })
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelled',
+          'Your file is safe :)',
+          'error'
+        )
+      }
+    })
   }
 
 }

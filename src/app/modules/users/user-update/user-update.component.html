@@ -1,3 +1,4 @@
+<div *ngIf="(token.role == 'USER' && username == token.sub) || token.role == token.role">
 <section class="vh-100 bg-image" style="background-color: #111010;"
 		>
 		<div class="mask d-flex align-items-center  gradient-custom-3">
@@ -7,8 +8,7 @@
 					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
 						<div class="card" style="border-radius: 15px;">
 							<div class="card-body p-5">
-								<h2 class="text-uppercase text-center mb-5">Create an
-									account</h2>
+								<h2 class="text-uppercase text-center mb-5">Update Profile</h2>
 
 								<form class="form-horizontal" [formGroup]="myForm" autocomplete="off" (ngSubmit)="save()">
 
@@ -30,26 +30,10 @@
                                                 </span>
                                         </div>
 
-									<label class="form-label" for="form3Example3cg">Email</label>
-									<div class="form-outline mb-4">
-										<input type="email" id="form3Example3cg"
-											class="form-control form-control-lg" formControlName="email"/>
-                                            <span class="form-text text-danger" *ngIf="notValidField('email')">
-                                                Invalid Email
-                                            </span>
-                                    </div>
 
 
-										<label class="form-label" for="form3Example4cg">Password</label>
-									<div class="form-outline mb-4">
-										<input type="password" id="pass1"
-											class="form-control form-control-lg"  formControlName="password"/> 
-                                            <span class="form-text text-danger" *ngIf="notValidField('password')">
-                                                Invalid password
-                                            </span>
-                                    </div>
-									<label class="col-sm-3 col-form-label">Role</label>
-                                        <div class="col-sm-9">
+									<label class="col-sm-3 col-form-label" *ngIf="username != token.sub">Role</label>
+                                        <div class="col-sm-9" *ngIf="username != token.sub">
 
                                             <div class="form-check">
                                                 <input class="form-check-input"
@@ -93,3 +77,4 @@
 			</div>
 		</div>
 	</section>
+</div>
