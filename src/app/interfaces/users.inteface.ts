@@ -26,6 +26,9 @@ export interface Content {
     first_name: string;
     email:      string;
     role:       string;
+    imc:        number;
+    peso:       number;
+    altura:     number;
 }
 
 export interface Pageable {
@@ -33,8 +36,8 @@ export interface Pageable {
     offset:     number;
     pageNumber: number;
     pageSize:   number;
-    paged:      boolean;
     unpaged:    boolean;
+    paged:      boolean;
 }
 
 export interface Sort {
@@ -226,14 +229,17 @@ const typeMap: any = {
         { json: "first_name", js: "first_name", typ: "" },
         { json: "email", js: "email", typ: "" },
         { json: "role", js: "role", typ: "" },
+        { json: "imc", js: "imc", typ: 0 },
+        { json: "peso", js: "peso", typ: 0 },
+        { json: "altura", js: "altura", typ: 0 },
     ], false),
     "Pageable": o([
         { json: "sort", js: "sort", typ: r("Sort") },
         { json: "offset", js: "offset", typ: 0 },
         { json: "pageNumber", js: "pageNumber", typ: 0 },
         { json: "pageSize", js: "pageSize", typ: 0 },
-        { json: "paged", js: "paged", typ: true },
         { json: "unpaged", js: "unpaged", typ: true },
+        { json: "paged", js: "paged", typ: true },
     ], false),
     "Sort": o([
         { json: "empty", js: "empty", typ: true },

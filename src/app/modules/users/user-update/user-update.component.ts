@@ -21,6 +21,8 @@ export class UserUpdateComponent implements OnInit {
   myForm: FormGroup = this.fb.group({
     username:['',[Validators.required,Validators.minLength(3),Validators.maxLength(12)]],
     first_name:['',[Validators.required,Validators.minLength(3),Validators.maxLength(12)]],
+    altura:['',[Validators.required,Validators.min(0.1)]],
+    peso:['',[Validators.required,Validators.min(0.1)]],
     role: ['USER', Validators.required]
   },)
 
@@ -34,6 +36,8 @@ export class UserUpdateComponent implements OnInit {
                       this.myForm.setValue({
                          username : resp.username,
                          first_name: resp.first_name,
+                         peso: resp.peso,
+                         altura: resp.altura,
                          role : resp.role
                       })
                     }
@@ -47,6 +51,7 @@ export class UserUpdateComponent implements OnInit {
     
   }
   save(){
+    console.log(this.myForm?.controls['username'].value,this.myForm.value)
     this.userService.updateUser(this.myForm?.controls['username'].value,this.myForm.value)
                       .subscribe({
                         next: (resp) => {

@@ -14,7 +14,8 @@ import { CartService } from './carrito.service';
 
     }
 
-    private url:string = 'https://proyectomultitudinarioapi-production.up.railway.app'
+    // https://proyectomultitudinarioapi-production.up.railway.app/products
+    private url:string = ' http://localhost:8080'
 
     httpOptions={
         headers: new HttpHeaders({'Content-Type':'application/json'})

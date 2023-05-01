@@ -17,8 +17,8 @@ export class CategoryService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  
-  private url:string = 'https://proyectomultitudinarioapi-production.up.railway.app/category'
+  // https://proyectomultitudinarioapi-production.up.railway.app/products
+  private url:string = 'http://localhost:8080/category'
 
 
     /**

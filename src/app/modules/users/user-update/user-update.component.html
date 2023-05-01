@@ -29,7 +29,23 @@
                                                     Invalid Name
                                                 </span>
                                         </div>
-
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example1cg">Weight</label>
+                                            <input type="number" id="form3Example1cg" step="0.01"
+                                                class="form-control form-control-lg" formControlName="peso"/>
+                                                <span class="form-text text-danger" *ngIf="notValidField('peso')">
+                                                    Invalid weight
+                                                </span>
+                                        </div>
+                                    
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example1cg">Height</label>
+                                            <input type="number" id="form3Example1cg" step="0.01"
+                                                class="form-control form-control-lg" formControlName="altura"/>
+                                                <span class="form-text text-danger" *ngIf="notValidField('altura')">
+                                                    Invalid Height
+                                                </span>
+                                        </div>
 
 
 									<label class="col-sm-3 col-form-label" *ngIf="username != token.sub">Role</label>

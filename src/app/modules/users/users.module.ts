@@ -14,6 +14,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UserUpdateComponent } from './user-update/user-update.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -36,7 +37,9 @@ import { UserUpdateComponent } from './user-update/user-update.component';
     MatPaginatorModule,
     MatSortModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressBarModule
+
   ]
 })
 export class UsersModule { }

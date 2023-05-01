@@ -1,8 +1,8 @@
 // To parse this data:
 //
-//   import { Convert, User } from "./file";
+//   import { Convert, Users } from "./file";
 //
-//   const user = Convert.toUser(json);
+//   const users = Convert.toUsers(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
@@ -15,11 +15,13 @@ export interface User {
     email:                 string;
     verificationCode:      string;
     enabled:               boolean;
-    orders:                any[];
+    imc:                   number;
+    peso:                  number;
+    altura:                number;
     authorities:           Authority[];
-    accountNonLocked:      boolean;
     accountNonExpired:     boolean;
     credentialsNonExpired: boolean;
+    accountNonLocked:      boolean;
 }
 
 export interface Authority {
@@ -29,12 +31,12 @@ export interface Authority {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toUser(json: string): User {
-        return cast(JSON.parse(json), r("User"));
+    public static toUsers(json: string): User {
+        return cast(JSON.parse(json), r("Users"));
     }
 
-    public static userToJson(value: User): string {
-        return JSON.stringify(uncast(value, r("User")), null, 2);
+    public static usersToJson(value: User): string {
+        return JSON.stringify(uncast(value, r("Users")), null, 2);
     }
 }
 
@@ -191,7 +193,7 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "User": o([
+    "Users": o([
         { json: "username", js: "username", typ: "" },
         { json: "password", js: "password", typ: "" },
         { json: "first_name", js: "first_name", typ: "" },
@@ -199,11 +201,13 @@ const typeMap: any = {
         { json: "email", js: "email", typ: "" },
         { json: "verificationCode", js: "verificationCode", typ: "" },
         { json: "enabled", js: "enabled", typ: true },
-        { json: "orders", js: "orders", typ: a("any") },
+        { json: "imc", js: "imc", typ: 0 },
+        { json: "peso", js: "peso", typ: 0 },
+        { json: "altura", js: "altura", typ: 0 },
         { json: "authorities", js: "authorities", typ: a(r("Authority")) },
-        { json: "accountNonLocked", js: "accountNonLocked", typ: true },
         { json: "accountNonExpired", js: "accountNonExpired", typ: true },
         { json: "credentialsNonExpired", js: "credentialsNonExpired", typ: true },
+        { json: "accountNonLocked", js: "accountNonLocked", typ: true },
     ], false),
     "Authority": o([
         { json: "authority", js: "authority", typ: "" },
