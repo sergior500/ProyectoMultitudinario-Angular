@@ -4,6 +4,7 @@ import { catchError, Observable, of, switchMap } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 import { Users } from '../interfaces/users.inteface';
 import { CartService } from './carrito.service';
+import { Consejo } from '../interfaces/consejos.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -47,6 +48,10 @@ import { CartService } from './carrito.service';
     userList():Observable<Users>{
         return this.http.get<Users>(`${this.url}/users?pageNumber=1&pageSize=9999`)
   }
+
+    getConsejo(imc:number):Observable<Consejo>{
+      return this.http.get<Consejo>(`${this.url}/consejos?valor=${imc}`)
+    }
 
   updateUser(username:string, user:any):Observable<any>{
     console.log(username)

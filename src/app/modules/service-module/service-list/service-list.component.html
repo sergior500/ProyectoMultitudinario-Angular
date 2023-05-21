@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <mat-card class="example-card" *ngFor="let card of obs | async">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ card.name }}</mat-card-title>
+          <mat-card-subtitle>{{ card.description }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p><b>Descripción: </b>{{ card.description }}
+          </p>
+          <p><b>Duration Days: </b>{{ card.days_duration }}
+          </p>
+          <p><b>Category: </b>{{ card.category_service }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <p *ngIf="admin == 'ADMIN'"><button  class="btn btn-danger" (click)="delete(card.id)"> Delete </button> <br><br><a  [routerLink]="['/services/update',card.id]"><button  class="btn btn-warning"> Update </button></a></p>
+          <button  class="btn btn-success" *ngIf="admin != ''" (click)="contratar(card.id)"> Contratar </button> <br><br>
+          <!-- <input id="form1" min="0" name="quantity" value="2" type="number"
+            class="form-control form-control-sm" /> -->
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="sticky">
+      <a [routerLink]="['/services/add']" *ngIf="admin == 'ADMIN'"><button type="button" class="btn btn-success boton">Add Service</button></a>
+      <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator>
+    </div>

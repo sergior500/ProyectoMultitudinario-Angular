@@ -59,6 +59,9 @@ export class UserUpdateComponent implements OnInit {
                             'Great!',
                             'The user has been updated!',
                             'success'
+                          ).then(() => {
+                            this.route.navigate(['/user']);
+                          }
                           )
                         },
                         error:(err) =>{

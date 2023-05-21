@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
   obesidad2:boolean = false;
   obesidad3:boolean = false;
   porcent:number = 0;
+  consejo:string = "";
 
   constructor(private userService: UsersService) { }
   token !:token;
@@ -32,13 +33,30 @@ export class UsersComponent implements OnInit {
           
           this.getPorcent(this.user.imc);
           this.checkImc();
+          this.getConsejo(this.redondeo(this.user.imc));
         }
       })
+      
   }
 
   getPorcent(imc:number){
     this.porcent = (imc/40) * 100;
     console.log(this.porcent)
+  }
+
+  redondeo(numero:number){
+    const factor = Math.pow(10, 2);
+    const numeroRedondeado = Math.round(numero * factor) / factor;
+    return numeroRedondeado;
+  }
+
+  getConsejo(imc:number){
+    this.userService.getConsejo(imc)
+        .subscribe({
+          next:(resp) => {
+            this.consejo = resp.texto;
+          }
+        })
   }
 
   checkImc(){

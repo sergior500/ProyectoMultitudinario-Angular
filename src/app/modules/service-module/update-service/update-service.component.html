@@ -1,0 +1,77 @@
+<section class=" bg-image" style="background-color: #111010;"
+		>
+		<div class="mask d-flex align-items-center  gradient-custom-3">
+			<div class="container">
+				<div
+					class="row d-flex justify-content-center align-items-center ">
+					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+						<div class="card" style="border-radius: 15px;">
+							<div class="card-body p-5">
+								<h2 class="text-uppercase text-center mb-5">Update Article</h2>
+                                
+								<form class="form-horizontal" [formGroup]="myForm" autocomplete="off" (ngSubmit)="save()">
+                                    
+
+									<div class="form-outline mb-4">
+									<label class="form-label" for="form3Example1cg">Name</label>
+										<input type="text" id="form3Example1cg"
+											class="form-control form-control-lg" formControlName="name" />
+                                            <span class="form-text text-danger" *ngIf="notValidField('name')">
+                                                Invalid Name
+                                            </span>
+									</div>
+
+									<div class="form-outline mb-4">
+                                        <label class="form-label" for="form3Example1cg">Price</label>
+                                            <input type="number" id="form3Example1cg" step="0.01"
+                                                class="form-control form-control-lg" formControlName="price"/>
+                                                <span class="form-text text-danger" *ngIf="notValidField('price')">
+                                                    Invalid Price
+                                                </span>
+                                        </div>
+
+									<label class="form-label" for="form3Example3cg">Duration Days</label>
+									<div class="form-outline mb-4">
+										<input type="number" id="form3Example3cg"
+											class="form-control form-control-lg" formControlName="days_duration"/>
+                                            <span class="form-text text-danger" *ngIf="notValidField('days_duration')">
+                                                Invalid Stock
+                                            </span>
+                                    </div>
+
+
+										<label class="form-label" for="form3Example4cg">Description</label>
+									<div class="form-outline mb-4">
+										<input type="text" id="pass1"
+											class="form-control form-control-lg"  formControlName="description"/> 
+                                            <span class="form-text text-danger" *ngIf="notValidField('description')">
+                                                Invalid Description
+                                            </span>
+                                    </div>
+									
+                                    
+                                    <label class="form-label" for="form3Example5cg">Category</label>
+									<div class="form-outline mb-4">
+                                        <select formControlName="category_service" id="categoryName" class="form-control form-control-lg">
+											
+											<option value="mensual"> Mensual</option>
+                                            <option value="trimestral">Trimestral</option>
+                                            <option value="anual">Anual</option>
+
+										</select>
+                                    </div>
+									
+
+									<div class="d-flex justify-content-center">
+										<button type="submit"
+											class="btn btn-dark btn-block btn-lg gradient-custom-4">Add</button>
+									</div>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>

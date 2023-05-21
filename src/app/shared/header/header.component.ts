@@ -13,7 +13,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router, private userService: UsersService) { }
+  constructor(private http: HttpClient, private userService: UsersService) { }
   token !:token;
   user : string = "";
   admin : string = "";
