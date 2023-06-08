@@ -66,4 +66,8 @@ export class ServiceService {
   contratarService(id:number,username:string):Observable<any>{
     return this.http.post<any>(`${this.url}/buy/${username}/${id}`,this.httpOptions)
   }
+
+  getServiceSubscription(id:number):Observable<any>{
+    return this.http.get<any>(`${this.url}s/${id}`)
+  }
 }

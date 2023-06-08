@@ -36,8 +36,7 @@ export class ShoppingCartComponent implements OnInit {
                     next:(resp) => (
                       this.productos.push({product: resp, quantity: item.quantity})
                     )
-                  })
-                  
+                  })    
     }
     
 
@@ -84,6 +83,15 @@ export class ShoppingCartComponent implements OnInit {
     })
   }
 
+  saveCart(product: shoppingCart){
+    let productoEspecifico = this.cart.find(producto => producto.id === product.product.id);
+    
+    if (productoEspecifico) {
+      productoEspecifico.quantity = product.quantity;
+    }
+    this.carro.saveCart(this.cart);
+  }
+  
   buy(){
     this.carro.buy(this.user)
     .subscribe({
@@ -110,4 +118,11 @@ export class ShoppingCartComponent implements OnInit {
     })
   }
 
+  increment(item: any) {
+    item.quantity++;
+  }
+
+  decrement(item: any) {
+    item.quantity--;
+  }
 }

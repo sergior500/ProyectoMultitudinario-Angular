@@ -68,6 +68,7 @@ import { productos } from '../interfaces/product.interface';
      * guardar el carrito en el local storage
      */
     uploadCart(){
+      
       localStorage.setItem('cart',JSON.stringify(this.cart))
     }
 
@@ -84,6 +85,14 @@ import { productos } from '../interfaces/product.interface';
       }
 
       this.uploadCart()
+    }
+
+    saveCart(carti:any){
+      this.cart = carti;
+
+      console.log(carti)
+
+      this.uploadCart();
     }
 
     /**
