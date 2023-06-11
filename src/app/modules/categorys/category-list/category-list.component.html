@@ -1,6 +1,6 @@
 <div class="container">
   <div class="arriba">
-    <div class="boton"><a [routerLink]="['/categorys/add']"><button type="button" class="btn btn-success">Add User</button></a></div>
+    <div class="boton"><a [routerLink]="['/categorys/add']" *ngIf="admin == 'ADMIN'"><button type="button" class="btn btn-success" >Add Category</button></a></div>
     <div class="example-header">
         <input (keyup)="applyFilter()" placeholder="Filter" [(ngModel)]="filterValue">
     </div>
@@ -42,3 +42,5 @@
       <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
     </div>
   </div>
+
+  

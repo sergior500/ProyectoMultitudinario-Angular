@@ -52,11 +52,11 @@ export class ArticlesListComponent implements OnInit {
   }
   
 
-  addToCart(id:number ){
+  addToCart(id:number, quantity:number ){
     this.product.id = id;
     console.log(this.product)
-
-    this.cartservice.addToCart(this.product);
+    console.log(quantity)
+    this.cartservice.addToCart(this.product,quantity);
 
     Swal.fire(
       'Good job!',

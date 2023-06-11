@@ -46,7 +46,7 @@ import { productos } from '../interfaces/product.interface';
      * Añadimos un producto al carrito
      * @param product 
      */
-    addToCart(product: productos) {
+    addToCart(product: productos, quant: number) {
       let encontrado=false;
 
       let aux = this.cart.find(item => item.id === product.id);
@@ -56,9 +56,9 @@ import { productos } from '../interfaces/product.interface';
         }
       }
       if (aux) {
-        aux.quantity++;
+        aux.quantity = aux.quantity + quant;
       } else if(encontrado==false) {
-        this.cart.push({ id : product.id , quantity: 1 });
+        this.cart.push({ id : product.id , quantity: quant });
       }
       this.uploadCart()
     }

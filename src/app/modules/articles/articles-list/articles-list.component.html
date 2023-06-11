@@ -13,10 +13,13 @@
       <img src="https://res.cloudinary.com/df7eewfeo/image/upload/v1678443061/no-image-icon-15_osj7ye.png" width="70px" *ngIf="card.listImage.length == 0">
       <p><b>Stock: </b>{{ card.stock }}
       </p>
+      <p><b>Price: </b>{{ card.price }}€
+      </p>
+      <input id="form1" min="0" #inputNumero  type="number" max="{{card.stock}}" [defaultValue]="1"/>
     </mat-card-content>
     <mat-card-actions>
       <p *ngIf="admin == 'ADMIN'"><button  class="btn btn-danger" (click)="delete(card.id)"> Delete </button> <br><br><a  [routerLink]="['/articles/update',card.id]"><button  class="btn btn-warning"> Update </button></a></p>
-      <button  class="btn btn-success" (click)="addToCart(card.id)" *ngIf="admin != ''"> AddToCart </button> <br><br>
+      <button  class="btn btn-success" (click)="addToCart(card.id, inputNumero.valueAsNumber)" *ngIf="admin != ''"> AddToCart </button> <br><br>
       <!-- <input id="form1" min="0" name="quantity" value="2" type="number"
         class="form-control form-control-sm" /> -->
     </mat-card-actions>

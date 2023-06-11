@@ -58,4 +58,8 @@ export class ArticleService {
     return this.http.delete<any>(`${this.url}/${id}`)
   }
 
+  getMostByedArticles():Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/purchases`)
+  }
+
 }

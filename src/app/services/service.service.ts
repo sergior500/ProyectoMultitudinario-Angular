@@ -70,4 +70,12 @@ export class ServiceService {
   getServiceSubscription(id:number):Observable<any>{
     return this.http.get<any>(`${this.url}s/${id}`)
   }
+
+  getServicePurchasedByUser(username:string):Observable<any>{
+    return this.http.get<any>(`${this.url}s/${username}`)
+  }
+
+  putServicePurchasedByUser(username:string,id:number,value:boolean):Observable<any>{
+    return this.http.put<any>(`${this.url}s/${username}/${id}/${!value}`,null)
+  }
 }

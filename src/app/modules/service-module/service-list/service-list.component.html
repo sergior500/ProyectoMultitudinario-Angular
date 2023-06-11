@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <mat-card class="example-card" *ngFor="let card of obs | async">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
           <mat-card-title>{{ card.name }}</mat-card-title>
           <mat-card-subtitle>{{ card.description }}</mat-card-subtitle>
         </mat-card-header>
@@ -11,6 +11,8 @@
           <p><b>Duration Days: </b>{{ card.days_duration }}
           </p>
           <p><b>Category: </b>{{ card.category_service }}
+          </p>
+          <p><b>Price: </b>{{ card.price }} €
           </p>
         </mat-card-content>
         <mat-card-actions>
