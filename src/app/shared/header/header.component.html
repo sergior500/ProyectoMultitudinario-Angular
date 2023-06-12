@@ -64,7 +64,10 @@
                   <button class="logoutButton" *ngIf="user" [routerLink]="['/user']">
                       Account
                   </button>
-
+                  <button class="logoutButton" *ngIf="user" >
+                     
+                    <span style="margin-left: 3px;" [routerLink]="['/articles/history']">Past Purchases</span>
+                </button>
                   <button class="logoutButton" *ngIf="user" >
                      
                       <span style="margin-left: 3px;" (click)="onLogout()">Log out</span>

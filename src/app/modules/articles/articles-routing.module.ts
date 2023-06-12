@@ -6,10 +6,16 @@ import { UpdateCategoryComponent } from '../categorys/update-category/update-cat
 import { ArticlesListComponent } from './articles-list/articles-list.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { HistoryComponent } from './history/history.component';
 
 
 const routes: Routes = [
 
+    
+    {
+        path:'history',
+        component: HistoryComponent
+    },
     {
         path:'add',
         component: AddArticleComponent

@@ -62,4 +62,8 @@ export class ArticleService {
     return this.http.get<any>(`http://localhost:8080/purchases`)
   }
 
+  getUserOrders(username:string):Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/purchases/${username}`)
+  }
+
 }

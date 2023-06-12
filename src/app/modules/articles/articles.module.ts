@@ -13,15 +13,18 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSortModule} from '@angular/material/sort'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
   declarations: [
     ArticlesListComponent,
+    HistoryComponent,
     ArticleComponent,
     AddArticleComponent,
     UpdateArticleComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,
