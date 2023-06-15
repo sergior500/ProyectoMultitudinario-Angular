@@ -7,11 +7,9 @@
           <!-- social icon-->
           <div class="col-sm-12">
             <ul class="social-network">
-              <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-pinterest"></i></a></li>
-              <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a class="waves-effect waves-dark" href="https://www.facebook.com/vidactivaTocina/"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="waves-effect waves-dark" href="https://twitter.com/vidactivaec?lang=es"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="waves-effect waves-dark" href="https://www.instagram.com/vidactiva__/?hl=es"><i class="fa fa-instagram"></i></a></li>
             </ul>
           </div>
 
@@ -21,11 +19,12 @@
   <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
     <div class="container">
       <a class="navbar-brand" [routerLink]="['/']" style="text-transform: uppercase;"> VidActiva</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="loco" id="navbarResponsive" >
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="collapse()">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive" >
-
+      
+      <div class="{{isCollapsed}}" id="navbarResponsive" >
         <ul class="navbar-nav ml-auto">
 
           <li class="nav-item">
@@ -93,5 +92,7 @@
         </ul>
       </div>
     </div>
+  </div>
   </nav>
+  
 </div>

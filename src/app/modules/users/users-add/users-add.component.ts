@@ -59,8 +59,7 @@ export class UsersAddComponent implements OnInit {
 
                     },
                     error:(err) => {
-                      console.log(err)
-                      console.log(this.myForm.value)
+
                       Swal.fire({
                         icon: 'error',
                         title: 'Oops...',

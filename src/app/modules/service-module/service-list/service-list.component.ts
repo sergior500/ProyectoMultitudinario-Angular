@@ -75,11 +75,11 @@ export class ServiceListComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
           this.obs = this.dataSource.connect();
           this.error = false;
-          console.log(resp)
+         
           
         }
       })
-      console.log(this.articles)
+      
   }
   delete(id:number){
     const swalWithBootstrapButtons = Swal.mixin({
@@ -110,7 +110,7 @@ export class ServiceListComponent implements OnInit {
             'Your file has been deleted.',
             'success'
           ).then(() => {
-            window.location.reload()
+            this.articleList()
           })
       } else if (
         /* Read more about handling dismissals below */
@@ -154,7 +154,7 @@ export class ServiceListComponent implements OnInit {
             'You have subscribed correctly.',
             'success'
           ).then(() => {
-            window.location.reload()
+            this.articleList()
           })
       } else if (
         /* Read more about handling dismissals below */

@@ -52,7 +52,7 @@ export class AddCategoryComponent implements OnInit {
         })
       }})
 
-    console.log(this.myForm.value)
+    
     this.myForm.reset({})
   }
 }

@@ -232,3 +232,7 @@ li {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+.nonCollapsed{
+  animation-delay: 40ms;
+}

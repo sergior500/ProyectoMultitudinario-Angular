@@ -31,7 +31,6 @@ export class ServiceService {
    * Peticion que nos devuelve una lista de articulos
    */
   serviceList():Observable<Service[]>{
-    console.log(this.url)
     return this.http.get<Service[]>(`${this.url}s`)
     
   }

@@ -74,7 +74,7 @@ async save(){
             })
           },
           error: (error) => {
-            console.log(error)
+            
             Swal.fire(
               'Oops!',
               'Ocurrió un error inesperado.',
@@ -84,7 +84,7 @@ async save(){
         })
     }
 
-    console.log(this.myForm.value)
+    
     this.myForm.reset({})
   }
 }

@@ -60,7 +60,7 @@ export class UserListComponent implements OnInit {
           this.dataSource = new MatTableDataSource(resp.content);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
-          console.log(this.dataSource)
+          
         }
     })
   }
@@ -94,7 +94,7 @@ export class UserListComponent implements OnInit {
               'Your file has been deleted.',
               'success'
             ).then(() => {
-              window.location.reload()
+              this.articleList()
             })
         } else if (
           /* Read more about handling dismissals below */

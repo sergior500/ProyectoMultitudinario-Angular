@@ -13,10 +13,16 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private http: HttpClient, private userService: UsersService) { }
+  constructor(private http: HttpClient, private userService: UsersService) { 
+    window.addEventListener('resize', () => {
+      this.isCollapsed = this.obtenerTamanoPantalla();
+    });
+  }
   token !:token;
   user : string = "";
   admin : string = "";
+  isCollapsed = "nonCollapsed";
+
   ngOnInit(): void {
     const aux = localStorage.getItem('token');
     if(aux){
@@ -32,6 +38,22 @@ export class HeaderComponent implements OnInit {
     this.userService.onlogout();
     window.location.reload()
     
+    
   }
+  collapse(){
+    if(this.isCollapsed ==="collapse"){
+    this.isCollapsed= "nonCollapsed";
+  }else{
+    this.isCollapsed= "collapse";
+  }
+}
+obtenerTamanoPantalla(): string {
+  const screenWidth = window.innerWidth;
 
+  if (screenWidth < 992) {
+    return 'collapse';
+  }  else {
+    return 'nonCollapsed';
+  }
+}
 }

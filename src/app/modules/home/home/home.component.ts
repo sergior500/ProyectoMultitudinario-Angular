@@ -6,6 +6,8 @@ import { MostPurchasedArticles } from 'src/app/interfaces/mostPurchasedArticles.
 import { productos } from 'src/app/interfaces/product.interface';
 import { CartService } from 'src/app/services/carrito.service';
 import Swal from 'sweetalert2';
+import { token } from 'src/app/interfaces/token.inteface';
+import jwtDecode from 'jwt-decode';
 
 
 @Component({
@@ -16,8 +18,10 @@ import Swal from 'sweetalert2';
 export class HomeComponent implements OnInit {
 
   constructor(private articleService: ArticleService, private cartservice: CartService) { }
-
+  token !:token;
+  admin : string = "";
   articles : Content[] = [];
+  
   product : productos = {
     id: 0,
     quantity : 0
@@ -25,6 +29,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMostPurchasedArticles();
+    this.token = jwtDecode(localStorage.getItem('token')!)
+    console.log(this.admin)
+    if(this.token){
+      this.admin = this.token.role;
+      
+    }
+    
   }
 
   getMostPurchasedArticles() {
@@ -58,14 +69,14 @@ export class HomeComponent implements OnInit {
           this.articles.push(articleAux);
           
         }
+        
       });
     });
   }
 
   addToCart(id:number, quantity:number ){
     this.product.id = id;
-    console.log(this.product)
-    console.log(quantity)
+    
     this.cartservice.addToCart(this.product,quantity);
 
     Swal.fire(

@@ -62,7 +62,7 @@ export class UpdateServiceComponent implements OnInit {
         )
     },
       error:(err)=>{
-        console.log(err)
+        
         Swal.fire({
           icon: 'error',
           title: 'Oops...',

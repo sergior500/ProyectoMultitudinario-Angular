@@ -68,7 +68,18 @@ export class ShoppingCartComponent implements OnInit {
             'Your file has been deleted.',
             'success'
           ).then(() => {
-            window.location.reload()
+            this.cart = [];
+            this.cart = this.carro.getCart();
+            this.productos = [];
+            for(let item of this.cart){
+              this.product.article(item.id)
+                          .subscribe({
+                            next:(resp) => (
+                              this.productos.push({product: resp, quantity: item.quantity})
+                            )
+                          })    
+            }
+
           })
       } else if (
         /* Read more about handling dismissals below */
@@ -102,13 +113,13 @@ export class ShoppingCartComponent implements OnInit {
           'success'
         ).then((resp) => {
           this.carro.clearCart();
-          window.location.reload();
+          this.ngOnInit()
           this.route.navigateByUrl('/articles');
         })
 
       },
       error: (error) => {
-        console.log(error)
+        
         Swal.fire(
           'Oops!',
           'Ocurrió un error inesperado.',

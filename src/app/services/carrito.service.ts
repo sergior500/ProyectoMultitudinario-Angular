@@ -90,8 +90,6 @@ import { productos } from '../interfaces/product.interface';
     saveCart(carti:any){
       this.cart = carti;
 
-      console.log(carti)
-
       this.uploadCart();
     }
 
@@ -113,7 +111,6 @@ import { productos } from '../interfaces/product.interface';
      */
     buy(username:string):Observable<any>{
       this.loadCart()
-      console.log(this.cart)
       return this.http.post<any>(`${this.url}/buy/${username}`,{'productos': this.cart},this.httpOptions)
     }
 

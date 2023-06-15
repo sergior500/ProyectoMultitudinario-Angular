@@ -29,6 +29,7 @@ export class ArticlesListComponent implements OnInit {
   token !:token;
   user : string = "";
   admin : string = "";
+
   product : productos = {
     id: 0,
     quantity : 0
@@ -54,8 +55,7 @@ export class ArticlesListComponent implements OnInit {
 
   addToCart(id:number, quantity:number ){
     this.product.id = id;
-    console.log(this.product)
-    console.log(quantity)
+    
     this.cartservice.addToCart(this.product,quantity);
 
     Swal.fire(
@@ -76,11 +76,11 @@ export class ArticlesListComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
           this.obs = this.dataSource.connect();
           this.error = false;
-          console.log(resp)
+          
           
         }
       })
-      console.log(this.articles)
+      
   }
   delete(id:number){
     const swalWithBootstrapButtons = Swal.mixin({
@@ -111,7 +111,7 @@ export class ArticlesListComponent implements OnInit {
             'Your file has been deleted.',
             'success'
           ).then(() => {
-            window.location.reload()
+            this.articleList()
           })
       } else if (
         /* Read more about handling dismissals below */

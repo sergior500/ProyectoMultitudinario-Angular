@@ -141,7 +141,7 @@ updateServicePurchased(id:number, value:boolean){
         .subscribe({
           next:(res) => {
             
-            console.log(res);
+            
           }
         })
         swalWithBootstrapButtons.fire(
@@ -149,7 +149,7 @@ updateServicePurchased(id:number, value:boolean){
           'Your file has been deleted.',
           'success'
         ).then(() => {
-          window.location.reload()
+          this.articleList()
         })
     } else if (
       /* Read more about handling dismissals below */

@@ -40,8 +40,7 @@ export class LoginComponent implements OnInit {
 }
 
   save() {
-    console.log(this.myForm);
-    console.log(this.myForm?.controls['username'].value,this.myForm?.controls['password'].value)
+     
     this.service.login(this.myForm?.controls['username'].value,this.myForm?.controls['password'].value)
                         .subscribe((resp)=>{
                           if(resp){

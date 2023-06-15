@@ -16,7 +16,7 @@ export class HistoryComponent implements OnInit {
 
   constructor(private articleService : ArticleService) { }
 
-  displayedColumns = ['id', 'name','quantity'];
+  displayedColumns = ['id', 'name','quantity', 'date'];
   dataSource!: MatTableDataSource<Orders[]>;
 
   @Input()
@@ -45,11 +45,12 @@ export class HistoryComponent implements OnInit {
     this.articleService.getUserOrders(this.token.sub)
       .subscribe({
         next:(resp)=>{
-          console.log(resp)
+          
           this.dataSource = new MatTableDataSource(resp);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
-          console.log(this.dataSource)
+          console.log(resp)
+          
         }
     })
   }

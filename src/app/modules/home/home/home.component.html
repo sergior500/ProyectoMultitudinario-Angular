@@ -8,8 +8,9 @@
     <div class="text">
         
     </div>
-    
+    <div class="sellers"><h1>Top 5 Sellers</h1></div>
     <div class="products">
+        
         <div class="item1">
             <div class="card" >
                 <img class="card-image" src="{{ articles[0].listImage[0].url }}" width="160 px" alt="{{ articles[0].name }}">
@@ -17,10 +18,12 @@
                 <h3 class="card-title">{{ articles[0].name }}</h3>
                 <p class="card-description">{{ articles[0].description }}</p>
                 <p class="card-description">{{ articles[0].price }}€</p>
-                <p class="card-description">Stock: {{ articles[0].stock }}</p>
-                <input id="form1" min="0" #inputNumero  type="number" max="{{articles[0].stock}}" [defaultValue]="1"/>
+                <p class="card-description" >Stock: {{ articles[0].stock }}</p>
+                <p *ngIf="admin != '' && articles.length > 0">
+                <input id="form1" min="0" #inputNumero1  type="number" max="{{articles[0].stock}}" [defaultValue]="1" />
                 <br><br>
-                <button class="card-button" (click)="addToCart(articles[0].id, inputNumero.valueAsNumber)">Add to cart</button>
+                <button class="card-button" (click)="addToCart(articles[0].id, inputNumero1.valueAsNumber)">Add to cart</button>
+                </p>
                 </div>
           </div>
           
@@ -33,9 +36,11 @@
                 <p class="card-description">{{ articles[1].description }}</p>
                 <p class="card-description">{{ articles[1].price }}€</p>
                 <p class="card-description">Stock: {{ articles[1].stock }}</p>
-                <input id="form1" min="0" #inputNumero  type="number" max="{{articles[1].stock}}" [defaultValue]="1"/>
+                <p *ngIf="admin != '' && articles.length > 0">
+                <input id="form1" min="0" #inputNumero2  type="number" max="{{articles[1].stock}}" [defaultValue]="1"/>
                 <br><br>
-                <button class="card-button" (click)="addToCart(articles[1].id, inputNumero.valueAsNumber)">Add to cart</button>
+                <button class="card-button" (click)="addToCart(articles[1].id, inputNumero2.valueAsNumber)">Add to cart</button>
+                </p>
                 </div>
           </div>
         </div>
@@ -46,10 +51,12 @@
                 <h3 class="card-title">{{ articles[2].name }}</h3>
                 <p class="card-description">{{ articles[2].description }}</p>
                 <p class="card-description">{{ articles[2].price }}€</p>
-                <p class="card-description">Stock: {{ articles[2].stock }}</p>
-                <input id="form1" min="0" #inputNumero  type="number" max="{{articles[2].stock}}" [defaultValue]="1"/>
+                <p class="card-description" *ngIf="">Stock: {{ articles[2].stock }}</p>
+                <p *ngIf="admin != '' && articles.length > 0">
+                <input id="form1" min="0" #inputNumero3  type="number" max="{{articles[2].stock}}" [defaultValue]="1"/>
                 <br><br>
-                <button class="card-button" (click)="addToCart(articles[2].id, inputNumero.valueAsNumber)">Add to cart</button>
+                <button class="card-button" (click)="addToCart(articles[2].id, inputNumero3.valueAsNumber)">Add to cart</button>
+                </p>
                 </div>
           </div>
         </div>
@@ -60,10 +67,12 @@
                 <h3 class="card-title">{{ articles[3].name }}</h3>
                 <p class="card-description">{{ articles[3].description }}</p>
                 <p class="card-description">{{ articles[3].price }}€</p>
-                <p class="card-description">Stock: {{ articles[3].stock }}</p>
-                <input id="form1" min="0" #inputNumero  type="number" max="{{articles[3].stock}}" [defaultValue]="1"/>
+                <p class="card-description">Stock: {{ articles[3].stock }}</p>#
+                <p *ngIf="admin != '' && articles.length > 0">
+                <input id="form1" min="0" #inputNumero4  type="number" max="{{articles[3].stock}}" [defaultValue]="1"/>
                 <br><br>
-                <button class="card-button" (click)="addToCart(articles[3].id, inputNumero.valueAsNumber)">Add to cart</button>
+                <button class="card-button" (click)="addToCart(articles[3].id, inputNumero4.valueAsNumber)">Add to cart</button>
+                </p>
                 </div>
           </div>
         </div>
@@ -75,11 +84,14 @@
                 <p class="card-description">{{ articles[4].description }}</p>
                 <p class="card-description">{{ articles[4].price }}€</p>
                 <p class="card-description">Stock: {{ articles[4].stock }}</p>
-                <input id="form1" min="0" #inputNumero  type="number" max="{{articles[4].stock}}" [defaultValue]="1"/>
+                <p *ngIf="admin != '' && articles.length > 0">
+                <input id="form1" min="0" #inputNumero5  type="number" max="{{articles[4].stock}}" [defaultValue]="1"/>
                 <br><br>
-                <button class="card-button" (click)="addToCart(articles[4].id, inputNumero.valueAsNumber)">Add to cart</button>
+                <button class="card-button" (click)="addToCart(articles[4].id, inputNumero5.valueAsNumber)">Add to cart</button>
+                </p>
                 </div>
           </div>
         </div>
     </div>
 </div>
+

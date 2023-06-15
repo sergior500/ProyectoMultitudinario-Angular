@@ -25,5 +25,6 @@
     </div>
     <div class="sticky">
       <a [routerLink]="['/services/add']" *ngIf="admin == 'ADMIN'"><button type="button" class="btn btn-success boton">Add Service</button></a>
-      <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[3,5]" *ngIf="admin == 'ADMIN'"></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[3,5,10]" *ngIf="admin != 'ADMIN'"></mat-paginator>
     </div>

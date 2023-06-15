@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './auth-guard.guard';
+import { HomeModule } from './modules/home/home.module';
 
 
 
@@ -21,7 +22,7 @@ import { AuthGuard } from './auth-guard.guard';
   declarations: [
     AppComponent
   ],
-  imports: [
+  imports: [HomeModule,
     BrowserModule,
     AppRoutingModule,
     SharedModule,
@@ -30,7 +31,8 @@ import { AuthGuard } from './auth-guard.guard';
     BrowserAnimationsModule,
     RouterModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    NgbCollapseModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

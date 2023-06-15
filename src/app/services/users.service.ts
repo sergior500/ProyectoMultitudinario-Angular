@@ -54,7 +54,7 @@ import { Consejo } from '../interfaces/consejos.interface';
     }
 
   updateUser(username:string, user:any):Observable<any>{
-    console.log(username)
+    
       return this.http.put<any>(`${this.url}/users/${username}`,user,this.httpOptions)
   }
 
@@ -67,7 +67,7 @@ import { Consejo } from '../interfaces/consejos.interface';
             return of(true);
     
           }),catchError(error=>{
-            console.log(error)
+            
             localStorage.setItem('loggin',"false");
             localStorage.removeItem("token");
             return of(false);
@@ -87,5 +87,6 @@ import { Consejo } from '../interfaces/consejos.interface';
         this.cart.clearCart();
         localStorage.setItem('loggin','false');
         localStorage.removeItem("token");
+        localStorage.setItem('cart',"")
       }
     }

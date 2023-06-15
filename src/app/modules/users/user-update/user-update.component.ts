@@ -51,7 +51,7 @@ export class UserUpdateComponent implements OnInit {
     
   }
   save(){
-    console.log(this.myForm?.controls['username'].value,this.myForm.value)
+    
     this.userService.updateUser(this.myForm?.controls['username'].value,this.myForm.value)
                       .subscribe({
                         next: (resp) => {

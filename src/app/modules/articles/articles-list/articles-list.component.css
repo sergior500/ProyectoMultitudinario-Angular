@@ -1,4 +1,4 @@
-table{
+/* table{
     background-color: #fff;
 }
 
@@ -25,4 +25,87 @@ table{
     margin-left: 20px;
 
     height: 10%;
-}
+} */
+
+/* Estilos generales */
+.container {
+    margin-top: 20px;
+  }
+  
+  .example-card {
+    margin-bottom: 20px;
+  }
+  
+  .example-header-image {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sticky {
+    position: sticky;
+    bottom: 0;
+    background-color: #f9f9f9;
+    padding: 10px;
+  }
+  
+  .boton {
+    margin-bottom: 10px;
+  }
+  
+
+  @media (min-width: 992px) {
+    /* Tamaño de pantalla mediano */
+     table{
+            background-color: #fff;
+        }
+
+        .container-fluid{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+
+        }
+        .example-card{
+            margin: 25px;
+            width: 300px;
+        }
+        .sticky{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .boton{
+            margin-left: 20px;
+
+            height: 10%;
+        } 
+  }
+  /* Estilos específicos para tamaños de pantalla */
+  @media (max-width: 992px) {
+    /* Tamaño de pantalla mediano */
+    .col-md-4 {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Tamaño de pantalla pequeño */
+    .col-sm-6 {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+  }
+  
