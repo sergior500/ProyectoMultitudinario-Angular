@@ -81,7 +81,7 @@ import { Consejo } from '../interfaces/consejos.interface';
 
       register(user:string, password:string, email:string, firstName:string){
 
-        return this.http.post<any>(`${this.url}/signup`,{'username':user, 'password':password,'first_name':firstName, 'email':email, 'altura':0, 'peso':0 },this.httpOptions)
+        return this.http.post<any>(`${this.url}/signup`,{'username':user, 'password':password,'first_name':firstName, 'email':email, 'altura':0.0, 'peso':0.0,'imc':0.0 },this.httpOptions)
       }
 
       onlogout(){
