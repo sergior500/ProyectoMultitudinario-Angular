@@ -16,7 +16,8 @@ export class ServiceService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   // https://proyectomultitudinarioapi-production.up.railway.app/products
-  private url:string = 'http://localhost:8080/service';
+  // http://localhost:8080/service
+  private url:string = 'https://proyectomultitudinarioapi-production.up.railway.app/service';
 
  
 

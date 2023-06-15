@@ -16,7 +16,8 @@ export class ArticleService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   // https://proyectomultitudinarioapi-production.up.railway.app/products
-  private url:string = 'http://localhost:8080/products';
+  // http://localhost:8080/products
+  private url:string = 'https://proyectomultitudinarioapi-production.up.railway.app/products';
 
  
 
@@ -59,11 +60,11 @@ export class ArticleService {
   }
 
   getMostByedArticles():Observable<any>{
-    return this.http.get<any>(`http://localhost:8080/purchases`)
+    return this.http.get<any>(`https://proyectomultitudinarioapi-production.up.railway.app/purchases`)
   }
 
   getUserOrders(username:string):Observable<any>{
-    return this.http.get<any>(`http://localhost:8080/purchases/${username}`)
+    return this.http.get<any>(`https://proyectomultitudinarioapi-production.up.railway.app/purchases/${username}`)
   }
 
 }

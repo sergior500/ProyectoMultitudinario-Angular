@@ -13,7 +13,8 @@ import { productos } from '../interfaces/product.interface';
     cart : productos[] = []
 
     // https://proyectomultitudinarioapi-production.up.railway.app/products
-    private url:string = ' http://localhost:8080';
+    // http://localhost:8080
+    private url:string = 'https://proyectomultitudinarioapi-production.up.railway.app';
 
     constructor(private http:HttpClient) { 
 

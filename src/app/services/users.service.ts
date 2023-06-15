@@ -16,7 +16,8 @@ import { Consejo } from '../interfaces/consejos.interface';
     }
 
     // https://proyectomultitudinarioapi-production.up.railway.app/products
-    private url:string = ' http://localhost:8080'
+    // http://localhost:8080
+    private url:string = 'https://proyectomultitudinarioapi-production.up.railway.app'
 
     httpOptions={
         headers: new HttpHeaders({'Content-Type':'application/json'})
@@ -80,7 +81,7 @@ import { Consejo } from '../interfaces/consejos.interface';
 
       register(user:string, password:string, email:string, firstName:string){
 
-        return this.http.post<any>(`${this.url}/signup`,{'username':user, 'password':password,'first_name':firstName, 'email':email },this.httpOptions)
+        return this.http.post<any>(`${this.url}/signup`,{'username':user, 'password':password,'first_name':firstName, 'email':email, 'altura':0, 'peso':0 },this.httpOptions)
       }
 
       onlogout(){
