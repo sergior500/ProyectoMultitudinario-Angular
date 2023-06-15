@@ -5,13 +5,14 @@ import { User } from '../interfaces/user.interface';
 import { Users } from '../interfaces/users.inteface';
 import { CartService } from './carrito.service';
 import { Consejo } from '../interfaces/consejos.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
   })
   export class UsersService {
     
-    constructor(private http:HttpClient, private cart:CartService) { 
+    constructor(private http:HttpClient, private cart:CartService, private route:Router) { 
 
     }
 
@@ -89,5 +90,7 @@ import { Consejo } from '../interfaces/consejos.interface';
         localStorage.setItem('loggin','false');
         localStorage.removeItem("token");
         localStorage.setItem('cart',"")
+        
+        window.location.reload();
       }
     }

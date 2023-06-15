@@ -13,7 +13,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private http: HttpClient, private userService: UsersService) { 
+  constructor(private http: HttpClient, private userService: UsersService, private route:Router) { 
     window.addEventListener('resize', () => {
       this.isCollapsed = this.obtenerTamanoPantalla();
     });
@@ -32,11 +32,12 @@ export class HeaderComponent implements OnInit {
       this.user = this.token.sub;
       this.admin = this.token.role;
     }
+    this.obtenerTamanoPantalla()
   }
   
   onLogout(){
+    this.route.navigate(["/"]);
     this.userService.onlogout();
-    window.location.reload()
     
     
   }
