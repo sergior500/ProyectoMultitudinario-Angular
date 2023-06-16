@@ -7,6 +7,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { UsersAddComponent } from './users-add/users-add.component';
 import { UsersComponent } from './users/users.component';
+import { VerifyComponent } from './verify/verify.component';
 
 const routes: Routes = [
 
@@ -29,6 +30,11 @@ const routes: Routes = [
     {
         path:'update/:id',
         component: UserUpdateComponent
+    }
+    ,
+    {
+        path:'verify',
+        component: VerifyComponent
     }
     ,
     {
