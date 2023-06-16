@@ -9,7 +9,7 @@
         
     </div>
     <div class="sellers"><h1>Top 5 Sellers</h1></div>
-    <div class="products">
+    <div class="products" *ngIf="articles.length > 0">
         
         <div class="item1">
             <div class="card" >
@@ -51,7 +51,7 @@
                 <h3 class="card-title">{{ articles[2].name }}</h3>
                 <p class="card-description">{{ articles[2].description }}</p>
                 <p class="card-description">{{ articles[2].price }}€</p>
-                <p class="card-description" *ngIf="">Stock: {{ articles[2].stock }}</p>
+                <p class="card-description">Stock: {{ articles[2].stock }}</p>
                 <p *ngIf="admin != '' && articles.length > 0">
                 <input id="form1" min="0" #inputNumero3  type="number" max="{{articles[2].stock}}" [defaultValue]="1"/>
                 <br><br>
@@ -67,7 +67,7 @@
                 <h3 class="card-title">{{ articles[3].name }}</h3>
                 <p class="card-description">{{ articles[3].description }}</p>
                 <p class="card-description">{{ articles[3].price }}€</p>
-                <p class="card-description">Stock: {{ articles[3].stock }}</p>#
+                <p class="card-description">Stock: {{ articles[3].stock }}</p>
                 <p *ngIf="admin != '' && articles.length > 0">
                 <input id="form1" min="0" #inputNumero4  type="number" max="{{articles[3].stock}}" [defaultValue]="1"/>
                 <br><br>
