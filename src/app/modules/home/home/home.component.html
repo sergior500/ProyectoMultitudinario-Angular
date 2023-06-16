@@ -22,7 +22,7 @@
                 <p *ngIf="admin != '' && articles.length > 0">
                 <input id="form1" min="0" #inputNumero1  type="number" max="{{articles[0].stock}}" [defaultValue]="1" />
                 <br><br>
-                <button class="card-button" (click)="addToCart(articles[0].id, inputNumero1.valueAsNumber)">Add to cart</button>
+                <button class="card-button" (click)="addToCart(articles[0].id, inputNumero1.valueAsNumber)" *ngIf="articles[0].stock > 0">Add to cart</button>
                 </p>
                 </div>
           </div>
@@ -39,7 +39,7 @@
                 <p *ngIf="admin != '' && articles.length > 0">
                 <input id="form1" min="0" #inputNumero2  type="number" max="{{articles[1].stock}}" [defaultValue]="1"/>
                 <br><br>
-                <button class="card-button" (click)="addToCart(articles[1].id, inputNumero2.valueAsNumber)">Add to cart</button>
+                <button class="card-button" (click)="addToCart(articles[1].id, inputNumero2.valueAsNumber)" *ngIf="articles[1].stock > 0">Add to cart</button>
                 </p>
                 </div>
           </div>
@@ -55,7 +55,7 @@
                 <p *ngIf="admin != '' && articles.length > 0">
                 <input id="form1" min="0" #inputNumero3  type="number" max="{{articles[2].stock}}" [defaultValue]="1"/>
                 <br><br>
-                <button class="card-button" (click)="addToCart(articles[2].id, inputNumero3.valueAsNumber)">Add to cart</button>
+                <button class="card-button" (click)="addToCart(articles[2].id, inputNumero3.valueAsNumber)" *ngIf="articles[2].stock > 0">Add to cart</button>
                 </p>
                 </div>
           </div>
@@ -71,7 +71,7 @@
                 <p *ngIf="admin != '' && articles.length > 0">
                 <input id="form1" min="0" #inputNumero4  type="number" max="{{articles[3].stock}}" [defaultValue]="1"/>
                 <br><br>
-                <button class="card-button" (click)="addToCart(articles[3].id, inputNumero4.valueAsNumber)">Add to cart</button>
+                <button class="card-button" (click)="addToCart(articles[3].id, inputNumero4.valueAsNumber)" *ngIf="articles[3].stock > 0">Add to cart</button>
                 </p>
                 </div>
           </div>
@@ -87,7 +87,7 @@
                 <p *ngIf="admin != '' && articles.length > 0">
                 <input id="form1" min="0" #inputNumero5  type="number" max="{{articles[4].stock}}" [defaultValue]="1"/>
                 <br><br>
-                <button class="card-button" (click)="addToCart(articles[4].id, inputNumero5.valueAsNumber)">Add to cart</button>
+                <button class="card-button" (click)="addToCart(articles[4].id, inputNumero5.valueAsNumber)"*ngIf="articles[4].stock > 0">Add to cart</button>
                 </p>
                 </div>
           </div>

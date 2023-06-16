@@ -17,7 +17,7 @@
     <mat-card-actions>
       <p *ngIf="admin != ''">
       <input id="form1" min="0" #inputNumero  type="number" max="{{card.stock}}" [defaultValue]="1" /><br><br>
-      <button  class="btn btn-success" (click)="addToCart(card.id, inputNumero.valueAsNumber)" > AddToCart </button>
+      <button  class="btn btn-success" (click)="addToCart(card.id, inputNumero.valueAsNumber)" *ngIf="card.stock > 0"> AddToCart </button>
       </p>
       <p *ngIf="admin == 'ADMIN'"><button  class="btn btn-danger" (click)="delete(card.id)"> Delete </button> <br><br><a  [routerLink]="['/articles/update',card.id]"><button  class="btn btn-warning"> Update </button></a></p>
       
